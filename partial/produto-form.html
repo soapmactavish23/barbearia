@@ -1,0 +1,46 @@
+<form role="form">
+    <div class="modal-header color-primary">
+        <h4 class='modal-title'></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">&times;</button>
+    </div>
+    <div class="modal-body">
+        <input type='hidden' name='idproduto'>
+        <div id='div-foto' align="center">
+            <img class='img-thumbnail' id='foto' width=320 height=240><br>
+        </div>
+        <div class="form-group">
+            <label for='nome'>Nome</label>
+            <input class='form-control' type='text' id='nome' name='nome' placeholder='Digite o nome do produto'
+                required>
+        </div>
+        <div class="form-group">
+            <label for='preco'>Preço</label>
+            <input class='form-control preco' type="number" id='preco' name='preco' placeholder='Digite o preço do produto' required>
+        </div>
+        <div class="form-group">
+            <label for='descricao'>Descrição</label>
+            <textarea class='form-control' id='descricao' name='descricao' placeholder='Digite a descrição do produto'
+                required></textarea>
+        </div>
+		<div class='form-group'>
+			<div class='row'>
+				<div class='col-sm-12' id='foto_1'>
+					<input type="hidden" name="foto_1">
+					<canvas class="img-thumbnail" id="snapshot_1" width="320" height="240"></canvas>
+					<button class="btn btn-warning" type="button" id="btn-alterar-foto-1">Alterar imagem</button>
+				</div>
+				<div class='col-sm-12' id='camera'>
+					<label for='file'>Para anexar imagens, escolha um arquivo</label>
+					<input type='file' class='form-control-file' id='file' max-size=4096000>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="modal-footer">
+        <button class='btn btn-success' type='submit'>Salvar</button>
+        <button class='btn btn-danger' type='button' id='btn-excluir'>Excluir</button>
+        <button class='btn btn-warning' type='reset' id="limpar">Limpar</button>
+    </div>
+</form>
+
+<script src='js/produto-form.js'></script>

@@ -1,0 +1,73 @@
+<form role="form">
+	<div class="modal-header color-primary">
+		<h4 class='modal-title'></h4>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">&times;</button>
+	</div> 
+	<div class="modal-body">
+		<input type='hidden' name='idusuario'>
+		<div id='div-foto' align="center">
+			<img class='img-thumbnail rounded-circle' id='foto' width=320 height=240><br>
+			<button class='btn btn-warning text-light' type='button' id="btn-alterar-foto">Alterar Foto</button>
+		</div>
+		<div class="form-group">
+			<label for='nome'>Nome</label>
+			<input class='form-control' type='text' id='nome' name='nome'
+				placeholder='Escreva o nome completo do usuário' required>
+		</div>
+		<div class="form-group">
+			<label for='email'>E-mail</label>
+			<input class='form-control' type='email' id='email' name='email' placeholder='Escreva o e-mail do usuário' required>
+		</div>
+		<div class='row'>
+			<div class="from-group col-sm-6">
+				<label for='cpf'>CPF</label>
+				<input class='form-control cpf' id='cpf' name='cpf' placeholder='Digite o CPF do usuário' required>
+			</div>
+			<div class="from-group col-sm-6">
+				<label>Data de Nascimento</label>
+				<input type="date" class="form-control" id="dt_nascimento" name="dt_nascimento">
+			</div>
+		</div>
+		<div class="row">
+			<div class="from-group col-sm-6">
+				<label for="contato">Contato</label>
+				<input type="text" class="form-control phone_with_ddd" id="contato" name="contato" required placeholder="Digite seu Contato">
+			</div>
+			<div class="from-group col-sm-6">
+				<label>Função</label>
+				<div id='div-funcao'>
+					<select class='form-control selectpicker' id='funcao' name='funcao' data-live-search='true' required></select>
+				</div>
+			</div>
+		</div>
+		<div class='row' id='div-camera'>
+			<div class='col-sm-6'>
+				<label>Câmera</label>
+				<video class="img-thumbnail" id="video" muted autoplay width=320 height=240></video>
+				<button class='btn btn-primary' type='button' id="btn-capturar">Capturar</button>
+			</div>
+			<div class='col-sm-6'>
+				<label>Nova foto</label><br>
+				<canvas class="img-thumbnail" id="snapshot" width=320 height=240>
+				</canvas>
+				<input type="hidden" name="foto">
+			</div>
+		</div>
+		<div class="from-group">
+			<label for='permissao'>Permissões</label>
+			<select class='form-control selectpicker' name='permissao[]' data-live-search='false'
+				data-actions-box='true' required multiple></select>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" id="ativado" name='ativado'>
+			<label class="form-check-label" for="ativado">Ativado</label>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class='btn btn-success' type='submit'>Salvar</button>
+		<button class='btn btn-danger' type='button' id='btn-excluir'>Excluir</button>
+		<button class='btn btn-primary' type='button' id='btn-renovar-senha'>Renovar senha</button>
+	</div>
+</form>
+
+<script src='js/usuario-form.js'></script>

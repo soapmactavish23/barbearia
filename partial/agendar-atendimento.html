@@ -1,0 +1,39 @@
+<div class="container rounded">
+    <h1>
+        Agendar Corte
+    </h1>
+    <form>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="barbeiro">
+                        Escolher um Barbeiro
+                    </label>
+                    <div id='div-barbeiro'>
+                        <select class='form-control selectpicker' id='barbeiro' name='barbeiro' data-live-search='true'
+                            required></select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="data">
+                        Escolher uma Data
+                    </label>
+                    <input type="datetime-local" id="data-corte" name="data-corte" class="form-control" required />
+                </div>
+                <div class="col-sm-4">
+                    <label for="corte">
+                        Escolher Corte
+                    </label>
+                    <div id='div-corte'>
+                        <select class='form-control selectpicker' id='corte' name='corte' data-live-search='true'
+                            required></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer" align="center">
+            <button type="reset" class="btn btn-warning">Limpar</button>
+            <button type="submit" class="btn btn-success">Agendar</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,61 @@
+{
+	"title": "Barbearia",
+	"items": [
+		{
+			"label": "Atendimento",
+			"subitems": [
+				{
+					"id": "agendar-atendimento",
+					"label": "Agendar"
+				},
+				{
+					"id": "distribuir-atendimento",
+					"label": "Distribuir"
+				},
+				{
+					"id": "atender",
+					"label": "Atender"
+				},
+				{
+					"id": "consultar-atendimento",
+					"label": "Consultar"
+				}
+			]
+		},
+		{
+			"label": "Corte",
+			"subitems": [
+				{
+					"id": "corte",
+					"label": "Cadastrar"
+				},
+				{
+					"id": "consultar-corte",
+					"label": "Consultar"
+				}
+			]
+		},
+		{
+			"label": "Produto",
+			"subitems": [
+				{
+					"id": "produto",
+					"label": "Cadastrar"
+				},
+				{
+					"id": "consultar-produto",
+					"label": "Consultar"
+				}
+			]
+		},
+		{
+			"label": "Administração",
+			"subitems": [
+				{
+					"id": "usuario",
+					"label": "Cadastrar Usuários"
+				}
+			]
+		}
+	]
+}
