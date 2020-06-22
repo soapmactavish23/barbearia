@@ -9,7 +9,7 @@ $('form').submit(function(){
 	data.push({name: 'metodo', value: 'mudarSenha'});
 	data.push({name: 'token', value: token});
 
-	$.post( URI + '/api.php', data, function (result) {
+	$.post( url + '/api.php', data, function (result) {
 		if ( result.error ) {
 			alert(result.error);
 		} else {
