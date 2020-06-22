@@ -39,6 +39,15 @@ class produto extends database {
 		
 		return array ( 'idproduto' => $this->idproduto);
 	}
+	public function excluir() {
+		if ( @ $_REQUEST['idproduto'] ) {
+			$this->idproduto = $_REQUEST['idproduto'];
+			$this->delete();
+			global $_user;
+			$this->saveLog('excluiu produto ID '.$_REQUEST['idproduto'], $_user->idusuario);
+			return array ( 'idproduto' => $this->idproduto );
+		}
+	}
 
 }
 

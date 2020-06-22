@@ -94,3 +94,27 @@ $('form').submit(function(){
 	});
 	return false;
 });
+
+$('#btn-excluir').click(function () {
+	if (confirm('Tem certeza que deseja excluir este registro?')) {
+		var formData = [];
+		formData.push({ name: "classe", value: "produto" });
+		formData.push({ name: "metodo", value: "excluir" });
+		formData.push({ name: "token", value: token });
+		formData.push({name: 'idproduto', value: $('input[name="idproduto"]').val()});
+		$.ajax({
+			type: "POST",
+			url: url + '/api.php',
+			data: formData,
+			success: function (result) {
+				if (result.error) {
+					alert(result.error);
+				} else {
+					$('.modal').modal('hide');
+					alert('ID '+result.idproduto+' excluído!');
+					datatable.ajax.reload(null, false);
+				}
+			}
+		});
+	}
+});

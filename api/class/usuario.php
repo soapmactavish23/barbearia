@@ -64,6 +64,20 @@ class usuario extends database {
 		}
 	}
 
+	public function obterTodosBarbeiros(){
+		$sql = "SELECT * FROM usuario WHERE permissao LIKE '%atender%'";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
 	public function salvar() {
 		$this->idusuario = @ $_REQUEST['idusuario'];
 		$this->nome = addslashes(@ $_REQUEST['nome']);
