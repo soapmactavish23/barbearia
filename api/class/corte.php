@@ -16,6 +16,20 @@ class corte extends database {
 		}
 	}
 
+	public function obterParaAgendar(){
+		$sql = "SELECT idcorte, concat(nome,' R$',preco) AS nome FROM corte";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
 	public function salvar() {
 		$this->idcorte = @ $_REQUEST['idcorte'];
 		$this->nome = addslashes(@ $_REQUEST['nome']);

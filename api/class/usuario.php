@@ -65,7 +65,7 @@ class usuario extends database {
 	}
 
 	public function obterTodosBarbeiros(){
-		$sql = "SELECT * FROM usuario WHERE permissao LIKE '%atender%'";
+		$sql = "SELECT idusuario, nome FROM usuario WHERE permissao LIKE '%atender%'";
 		if ( $rs = parent::fetch_all($sql) ) {
 			foreach ( $rs as $row ) {
 				$col = array();

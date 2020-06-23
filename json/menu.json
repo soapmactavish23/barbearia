@@ -9,12 +9,12 @@
 					"label": "Agendar"
 				},
 				{
-					"id": "distribuir-atendimento",
-					"label": "Distribuir"
-				},
-				{
 					"id": "atender",
 					"label": "Atender"
+				},
+				{
+					"id": "finalizar-atendimento",
+					"label": "Finalizar"
 				},
 				{
 					"id": "consultar-atendimento",
