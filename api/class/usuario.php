@@ -78,6 +78,23 @@ class usuario extends database {
 		}
 	}
 
+	public function obterTodosBarbeirosDisponiveis(){
+		global $_user;
+		$sql = "SELECT idusuario, nome
+		FROM usuario
+		WHERE idusuario != $_user->idusuario";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
 	public function salvar() {
 		$this->idusuario = @ $_REQUEST['idusuario'];
 		$this->nome = addslashes(@ $_REQUEST['nome']);

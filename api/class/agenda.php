@@ -25,7 +25,7 @@ class agenda extends database {
 		ON c.idcorte = a.idcorte
 		LEFT JOIN cliente cl
 		ON cl.idcliente = a.idcliente
-		WHERE status = 'EM ABERTO' AND u.idusuario = ".$_user->idusuario;
+		WHERE (status = 'EM ABERTO' OR status = 'EM ATENDIMENTO') AND a.idusuario = ".$_user->idusuario;
 		if ( $rs = parent::fetch_all($sql) ) {
 			foreach ( $rs as $row ) {
 				$col = array();
@@ -36,6 +36,85 @@ class agenda extends database {
 			}
 			return array( 'data' => $rows );
 		}
+	}
+
+	public function obterParaPagar(){
+		$sql = "SELECT idagenda, u.nome as barbeiro, concat(c.nome, ' R$', preco) as corte
+		FROM corte c
+		INNER JOIN agenda a
+		ON a.idcorte = c.idcorte
+		INNER JOIN usuario u
+		ON a.idusuario = u.idusuario
+		WHERE status = 'FINALIZADO'";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
+	public function obterTodosConsulta(){
+		$sql = "SELECT idagenda, status, u.nome as barbeiro, u.foto, c.nome as cliente, ct.nome as corte, ct.preco, a.dt_update 
+		FROM agenda a
+		INNER JOIN usuario u
+		ON a.idusuario = u.idusuario
+		LEFT JOIN cliente c
+		ON a.idcliente = c.idcliente
+		INNER JOIN corte ct
+		ON a.idcorte = ct.idcorte";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
+	public function verificarEmAtendimento(){
+		global $_user;
+		$sql = "SELECT idagenda FROM agenda WHERE idusuario = ".$_user->idusuario." AND status = 'EM ATENDIMENTO'";
+		if($rs = parent::fetch_all($sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function iniciarAtendimento(){
+		$this->idagenda = @ $_REQUEST['idagenda'];
+		if( $this->idagenda ){
+			$this->status = "EM ATENDIMENTO";
+			$this->dt_update = date('Y-m-d H:i:s');
+			$this->update();
+			return array( 'idagenda' => $this->idagenda );
+		}
+	}
+
+	public function finalizarAtendimento(){
+		$this->idagenda = @ $_REQUEST['idagenda'];
+		if( $this->idagenda ){
+			$this->status = "FINALIZADO";
+			$this->dt_update = date('Y-m-d H:i:s');
+			$this->update();
+			return array( 'idagenda' => $this->idagenda );
+		}
+	}
+
+	public function distribuirAtendimento(){
+		$this->idagenda = @ $_REQUEST['idagenda'];
+		$this->idusuario = @ $_REQUEST['barbeiro'];
+		$this->dt_update = date('Y-m-d H:i:s');
+		$this->update();
+		return array( 'idagenda' => $this->idagenda, 'idusuario' => $this->idusuario );
 	}
 
 	public function salvar() {
@@ -69,6 +148,16 @@ class agenda extends database {
 			$this->saveLog('excluiu agenda ID '.$_REQUEST['idagenda'], $_user->idusuario);
 			return array ( 'idagenda' => $this->idagenda );
 		}
+	}
+
+	public function pagar(){
+		$this->idagenda = @ $_REQUEST['idagenda'];
+		$this->status = "PAGO";
+		$this->dt_update = date('Y-m-d H:i:s');
+		$this->update();
+		global $_user;
+		$this->saveLog('pagou agenda ID '.$_REQUEST['idagenda'], $_user->idusuario);
+		return array ( 'idagenda' => $this->idagenda );
 	}
 
 }

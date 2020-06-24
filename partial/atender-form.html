@@ -1,0 +1,27 @@
+<form role="form">
+    <div class="modal-header color-primary">
+        <h4 class='modal-title'></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p>
+            Em <b><span id="data">00/00/0000</span></b> o cliente <b><span id="nome_cliente">Nome do Cliente</span></b>
+            agendou seu atendimento, o corte que ele deseja é <b><span id="nome_corte">Nome do Corte</span></b>:
+        </p>
+        <div id='div-foto' align="center">
+            <img class='img-thumbnail' id='foto' width=320 height=240><br>
+        </div>
+        <div class="form-group" id='div-barbeiro'>
+            <label>Selecione outro barbeiro para distribuir o atendimento:</label>
+            <select class='form-control selectpicker' id='barbeiro' name='barbeiro' data-live-search='true' required></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class='btn btn-info' type='button' id="btn-distribuir">Distribuir</button>
+        <button class='btn btn-primary' type='button' id='btn-iniciar'>Iniciar Atendimento</button>
+        <button class='btn btn-success' type='button' id="btn-finalizar">Finalizar</button>
+        <button class='btn btn-warning' type='button' id="btn-cancelar">Cancelar</button>
+        <button class='btn btn-success' type='submit' id="btn-gravar">Gravar</button>
+    </div>
+</form>
+<script src='js/atender-form.js'></script>

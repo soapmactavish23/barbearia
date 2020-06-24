@@ -1,0 +1,26 @@
+<style>
+	td.details-control {
+		background: url('img/add-control.png') no-repeat center center;
+		cursor: pointer;
+	}
+	tr.shown td.details-control {
+		background: url('img/remove-control.png') no-repeat center center;
+	}
+</style>
+
+<div class="container rounded">
+	<h1>
+		Consultar Atendimentos
+	</h1>
+	<table id="datatable" class="table table-hover" style="width:100%">
+		<thead class='color-primary-dark text-light'>
+			<tr>
+				<th></th>
+                <th>Protocolo de Atendimento</th>
+                <th>Status</th>
+			</tr>
+		</thead>
+	</table>
+	<br />
+    <script src='js/consultar-atendimento.js'></script>
+</div>
