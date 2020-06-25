@@ -1,0 +1,68 @@
+body{
+    background-color: #D8D8D8;
+}
+.color-primary{
+	background-color: #5D4037;
+}
+
+.color-primary-dark{
+	background-color: #3E2723;
+}
+
+.color-accent{
+	background-color: #8D6E63;
+}
+
+.color-accent:hover{
+	background-color: #3E2723;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #8D6E63;
+    margin-left: 10px;
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+.masthead {
+    margin-bottom: 2rem;
+}
+.masthead-brand {
+    margin-bottom: 0;
+}
+
+.nav-masthead .nav-link{
+    padding: .25rem 0;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .5);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus,
+.nav-masthead .nav-link:visited {
+    border-bottom-color: rgb(255, 255, 255);
+}
+.nav-masthead .nav-link + .nav-link {
+    margin-left: 1rem;
+}
+.nav-masthead .active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.nav-main{
+    background-color: #031427;
+}

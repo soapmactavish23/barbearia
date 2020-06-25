@@ -1,0 +1,75 @@
+<div id="contato">
+	<nav class="navbar navbar-dark color-primary">
+		<a class="navbar-brand" href="index-cliente.html">Siga nas Redes Sociais</a>
+		<ul class="nav nav-pills nav">
+			<li class="nav-item">
+				<a class="nav-link hvr-grow active color-accent" href="https://api.whatsapp.com/send?phone=5591980877929">
+					<i class="fab fa-whatsapp"></i>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link hvr-grow active" href="https://www.facebook.com/henrick.nogueira">
+					<i class="fab fa-facebook"></i>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link hvr-grow active" href="#" data-toggle="modal" data-target="#modal" onclick="carregarModal('mapa')">
+					<i class="fas fa-map-marker-alt "></i>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link hvr-grow active" href="https://www.instagram.com/nogueira_henrick/">
+					<i class="fab fa-instagram"></i>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link hvr-grow active" href="#" id="contato" data-toggle="modal" data-target="#modal" onclick="carregarModal('email')">
+					<i class="fas fa-envelope-square"></i>
+				</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link hvr-grow active" href="#">
+                    <i class="fa fa-user"></i> <span id="btnEntrar">Entrar</span>
+				</a>
+            </li>
+            <li class="nav-item" hidden>
+                <a class="nav-link hvr-grow active" href="#">
+					<i class="fa fa-lock"></i> Sair
+				</a>
+            </li>
+		</ul>
+	</nav>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark color-primary-dark">
+	<div class="container">
+		<a class="navbar-brand hvr-grow" href="index-cliente.html">
+			<img src="img/logo.png" class="img-fluid" width="200">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse " id="navbarSupportedContent">
+			<ul class="navbar-nav justify-content-end container">
+				<li class="nav-item hvr-float-shadow active nav-masthead mx-auto">
+					<a class="nav-link" href="#home" id="home">Home</a>
+                </li>
+                <li class="nav-item hvr-float-shadow active nav-masthead mx-auto">
+					<a class="nav-link" href="#cortes" id="cortes"
+						onclick="carregaMain('cortes')">Cortes</a>
+				</li>
+				<li class="nav-item hvr-float-shadow active nav-masthead mx-auto">
+					<a class="nav-link" href="#produtos" id="produtos"
+						onclick="carregaMain('produtos')">Produtos</a>
+				</li>
+				<li class="nav-item hvr-float-shadow active nav-masthead mx-auto">
+					<a class="nav-link" href="#time" id="time" onclick="carregaMain('time')">Nosso Time</a>
+				</li>
+				<li class="nav-item hvr-float-shadow active nav-masthead mx-auto">
+					<a class="nav-link" href="#agendar" id="agendar-atendimento" onclick="carregaMain('agendar-atendimento')">Agendar Corte</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<script src="js/header.js"></script>
