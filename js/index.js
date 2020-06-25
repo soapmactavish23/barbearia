@@ -78,6 +78,9 @@ if ( sessionStorage.getItem('token') && sessionStorage.getItem('token') !== "und
 		$('main').load('partial/'+userCaseId+'.html');
 	}
 
+	//Dashboard
+	$('.starter').load("partial/dashboard.html");
+
 } else {
 
 	// Token não existe na sessionStorage

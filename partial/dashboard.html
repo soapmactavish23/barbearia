@@ -1,0 +1,55 @@
+<div class="card" style="background-color: rgba(255,255,255, 0.85);">
+    <div class="card-header">
+        <h3 class="text-center">Registros da Barbearia  </h3> 
+    </div>
+    <div class="card-body">
+        <div id='situacao-denuncia' class='panel'>
+            <div class='h6 text-center'>Status de <span class='h4' id='atualizadas'></span> cortes atualizados</div>
+            <div class="row" id="situacao-veiculos">
+                <div class='col-lg-2 col-md-4 col-sm-6 mb-1'>
+                    <div class='card shadow bg-danger text-white text-center'>
+                        <h2 class='card-title' id='aberto'>0</h2>
+                        <div class='card-text'>EM ABERTO<br></div>
+                    </div> 
+                </div>
+                <div class='col-lg-2 col-md-4 col-sm-6 mb-1'>
+                    <div class='card shadow bg-warning text-white text-center'>
+                        <h2 class='card-title' id='atendimento'>0</h2>
+                        <div class='card-text'>EM ATENDIMENTO<br></div>
+                    </div> 
+                </div>
+                <div class='col-lg-2 col-md-4 col-sm-6 mb-1'>
+                    <div class='card shadow bg-primary text-white text-center'>
+                        <h2 class='card-title' id='finalizado'>0</h2>
+                        <div class='card-text'>FINALIZADO<br></div>
+                    </div> 
+                </div>
+                <div class='col-lg-2 col-md-4 col-sm-6 mb-1'>
+                    <div class='card shadow bg-success text-white text-center'>
+                        <h2 class='card-title' id='pago'>0</h2>
+                        <div class='card-text'>PAGO<br></div>
+                    </div> 	
+                </div>
+                <div class='col-lg-4 col-md-4 col-sm-6 mb-1'>
+                    <div class='card shadow bg-dark text-white text-center'>
+                        <h2 class='card-title' id='total'>0</h2>
+                        <div class='card-text'>Total<br></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="card col-sm-6">
+                <canvas id="painel-barbeiros" style="display: block; height: 310px; width: 621px;" width="558" height="278">
+                </canvas>
+            </div>
+            <div class="card col-sm-6">
+                <canvas id="painel-cortes" style="display: block; height: 310px; width: 621px;" width="558" height="278">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<script src="js/dashboard.js"></script>

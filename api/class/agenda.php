@@ -160,5 +160,54 @@ class agenda extends database {
 		return array ( 'idagenda' => $this->idagenda );
 	}
 
+	public function contarStatus(){
+		$sql = "SELECT status, COUNT(*) as total FROM agenda group by status order by status";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
+	public function contarCortesBarbeiros(){
+		$sql = "SELECT nome, COUNT(*) as cortes FROM agenda a
+		INNER JOIN usuario u
+		ON a.idusuario = u.idusuario
+		WHERE funcao = 'BARBEIRO'
+		group by nome";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
+	public function contarCortes(){
+		$sql = "SELECT nome, COUNT(*) as pedidos FROM AGENDA a
+		INNER JOIN corte c
+		ON a.idcorte = c.idcorte
+		group by nome";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
 }
 ?>
