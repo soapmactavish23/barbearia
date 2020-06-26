@@ -1,4 +1,4 @@
-var url_cliente = window.location.origin + '/barbearia';
+var url_cliente = window.location.origin;
 //Carregar a Navbar
 $.ajax({
 	url: url_cliente + '/partial/header.html',

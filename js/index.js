@@ -1,4 +1,4 @@
-var url = window.location.origin + '/barbearia/api';
+var url = window.location.origin + '/api';
 
 // Verifica se existe o token na sessionStorage
 if ( sessionStorage.getItem('token') && sessionStorage.getItem('token') !== "undefined" ) {
