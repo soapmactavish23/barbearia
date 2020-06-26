@@ -6,3 +6,11 @@ $.ajax({
         $('header').html(data);
 	}
 });
+
+//Carregar o Footer
+$.ajax({
+	url: url_cliente + '/partial/footer.html',
+	success: function(data){
+		$('footer').html(data);
+	}
+});

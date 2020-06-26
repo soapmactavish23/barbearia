@@ -66,3 +66,9 @@ body{
 .nav-main{
     background-color: #031427;
 }
+.footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 9;
+}
