@@ -17,6 +17,35 @@ class produto extends database {
 		}
 	}
 
+	public function obterParaView(){
+		$sql = "SELECT idproduto, nome, foto, descricao, preco FROM produto";
+		if($_REQUEST['pesquisa']) $sql .= " WHERE nome like '%".$_REQUEST["pesquisa"]."%' OR preco like '%".$_REQUEST["pesquisa"]."%'";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
+	public function obterParaCliente(){
+		$sql = "SELECT idproduto, foto, nome, descricao FROM produto";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
 	public function salvar() {
 		$this->idproduto = @ $_REQUEST['idproduto'];
 		$this->nome = addslashes(@ $_REQUEST['nome']);
