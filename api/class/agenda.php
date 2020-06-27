@@ -128,13 +128,13 @@ class agenda extends database {
 			$this->dt_update = date('Y-m-d H:i:s');
 			$this->update();
 			
-			global $_user;
-			$this->saveLog('alterou agenda ID '.$this->idagenda, $_user->idusuario);
+			// global $_user;
+			// $this->saveLog('alterou agenda ID '.$this->idagenda, $_user->idusuario);
 		} else {
 			$this->idagenda = $this->insert();
 			
-			global $_user;
-			$this->saveLog('inserir agenda ID '.$this->idagenda, $_user->idusuario);
+			// global $_user;
+			// $this->saveLog('inserir agenda ID '.$this->idagenda, $_user->idusuario);
 		}
 		
 		return array ( 'idagenda' => $this->idagenda);
@@ -161,7 +161,12 @@ class agenda extends database {
 	}
 
 	public function contarStatus(){
-		$sql = "SELECT status, COUNT(*) as total FROM agenda group by status order by status";
+		$sql = "SELECT COUNT(*) as total,
+		(SELECT COUNT(*) from agenda WHERE status = 'EM ABERTO') as aberto,
+		(SELECT COUNT(*) from agenda WHERE status = 'PAGO') as pago,
+		(SELECT COUNT(*) from agenda WHERE status = 'EM ATENDIMENTO') as atendimento,
+		(SELECT COUNT(*) from agenda WHERE status = 'FINALIZADO') as finalizado 
+		from agenda";
 		if ( $rs = parent::fetch_all($sql) ) {
 			foreach ( $rs as $row ) {
 				$col = array();

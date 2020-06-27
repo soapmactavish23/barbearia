@@ -12,17 +12,13 @@ $.ajax({
     type: 'post',
     data: {classe: 'agenda', metodo: 'contarStatus', token: token},
     success: function(result){
-        console.log(result);
-        var aberto = parseInt(result.data[0].total);
-        var atendimento = parseInt(result.data[1].total);
-        var finalizado = parseInt(result.data[2].total);
-        var pago = parseInt(result.data[3].total);
-        var resultadoTotal = aberto + atendimento + finalizado + pago;
-        $('#aberto').text(aberto);
-        $('#atendimento').text(atendimento);
-        $('#finalizado').text(finalizado);
-        $('#pago').text(pago);
-        $('#total').text(resultadoTotal);
+        $.each( result.data, function(i, field) {
+            $('#aberto').text(field.aberto);
+            $('#atendimento').text(field.atendimento);
+            $('#finalizado').text(field.finalizado);
+            $('#pago').text(field.pago);
+            $('#total').text(field.total);
+        });
     }
 });
 

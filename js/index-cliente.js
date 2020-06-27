@@ -7,6 +7,14 @@ $.ajax({
 	}
 });
 
+//Carregar a main
+$.ajax({
+	url: url_cliente + '/partial/home.html',
+	success: function(data){
+		$('#main-cliente').html(data);
+	}
+});
+
 //Carregar o Footer
 $.ajax({
 	url: url_cliente + '/partial/footer.html',

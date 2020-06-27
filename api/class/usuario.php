@@ -31,6 +31,21 @@ class usuario extends database {
 			return array( 'data' => $rows );
 		}
 	}
+
+	public function obterTodosTime() {
+		$sql = "SELECT idusuario as id, nome, contato, email, funcao, foto FROM usuario";
+
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
 	
 	public function obterTodasAsFuncoes(){
 		$sql = "SELECT DISTINCT funcao FROM usuario WHERE ativado = 'S'";

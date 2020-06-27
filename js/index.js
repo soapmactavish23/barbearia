@@ -79,7 +79,7 @@ if ( sessionStorage.getItem('token') && sessionStorage.getItem('token') !== "und
 	}
 
 	//Dashboard
-	$('.starter').load("partial/dashboard.html");
+	$('main').load("partial/dashboard.html");
 
 } else {
 
