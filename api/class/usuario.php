@@ -120,6 +120,8 @@ class usuario extends database {
 		$this->permissao = implode(',', @ $_REQUEST['permissao']);
 		$this->contato = addslashes(@ $_REQUEST['contato']);
 		$this->foto = @ $_REQUEST['foto'];
+
+		// $this->execute("INSERT INTO foto(foto) values (".$_REQUEST['foto'].")");
 		
 		if ( @ $_REQUEST['ativado'] ) $this->ativado = 'S';
 		else $this->ativado = 'N';

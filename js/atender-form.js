@@ -1,7 +1,6 @@
 if(data){
-    var dt = data.data;
     $('.modal-title').text("Protocolo de Agendamento #"+data.idagenda);
-    $('#data').text(function(dt) { return datetime_format(dt,'d/m/y h:i')});
+    $('#data').text(function() { return datetime_format(data.data,'d/m/y h:i')});
     $('#nome_cliente').text(data.nome_cliente);
     $('#nome_corte').text(data.nome_corte);
     $('#foto').attr("src",data.foto);

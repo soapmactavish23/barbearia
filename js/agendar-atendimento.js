@@ -1,53 +1,60 @@
-// Select Picker para barbeiros
-var select_barbeiro = $('select[name="barbeiro"]');
-$.ajax({
-	type: 'post',
-	url: url + '/api.php',
-	data: {classe: 'usuario', metodo: 'obterTodosBarbeiros', token: token},
-	success: function(result){
-        console.log(result);
-		for(var i = 0; i < result.data.length; i++){
-			var optgroup = "<option value='"+result.data[i].idusuario+"'>" + result.data[i].nome + "</option>";
-			select_barbeiro.append(optgroup);
-		}
-		select_barbeiro.selectpicker();
+if ( token == "undefined" ) {
+	if(token_cliente == "undefined"){
+		alert("Para agendar o corte você precisa estar Logado no nosso site");
+		$('#msg-erro').show();
 	}
-});
-
-// Select Picker para cortes
-var select_corte = $('select[name="corte"]');
-$.ajax({
-	type: 'post',
-	url: url + '/api.php',
-	data: {classe: 'corte', metodo: 'obterParaAgendar', token: token},
-	success: function(result){
-		console.log(result);
-		for(var i = 0; i < result.data.length; i++){
-			var optgroup = "<option value='"+result.data[i].idcorte+"'>" + result.data[i].nome + "</option>";
-			select_corte.append(optgroup);
+}else{
+	$('#msg-erro').hide();
+	// Select Picker para barbeiros
+	var select_barbeiro = $('select[name="barbeiro"]');
+	$.ajax({
+		type: 'post',
+		url: url + '/api.php',
+		data: {classe: 'usuario', metodo: 'obterTodosBarbeiros', token: token},
+		success: function(result){
+			console.log(result);
+			for(var i = 0; i < result.data.length; i++){
+				var optgroup = "<option value='"+result.data[i].idusuario+"'>" + result.data[i].nome + "</option>";
+				select_barbeiro.append(optgroup);
+			}
+			select_barbeiro.selectpicker();
 		}
-		select_corte.selectpicker();
-	}
-});
+	});
 
-$('form').submit(function(){
-    var formData = $(this).serializeArray();
-	formData.push({name: 'classe', value: 'agenda'});
-	formData.push({name: 'metodo', value: 'salvar'});
-    formData.push({name: 'token', value: token});
-    $.ajax({
-        type: 'POST',
-        url: url + '/api.php',
-        data: formData,
-        success: function(result){
-            if(result.error){
-                alert(result);
-            }else{
-                //$('form').reset();
-				alert('Agendamento ID'+result.idagenda+' gravado!');
-            }
-        }
-    });
-    return false;
-});
+	// Select Picker para cortes
+	var select_corte = $('select[name="corte"]');
+	$.ajax({
+		type: 'post',
+		url: url + '/api.php',
+		data: {classe: 'corte', metodo: 'obterParaAgendar', token: token},
+		success: function(result){
+			console.log(result);
+			for(var i = 0; i < result.data.length; i++){
+				var optgroup = "<option value='"+result.data[i].idcorte+"'>" + result.data[i].nome + "</option>";
+				select_corte.append(optgroup);
+			}
+			select_corte.selectpicker();
+		}
+	});
 
+	$('form').submit(function(){
+		var formData = $(this).serializeArray();
+		formData.push({name: 'classe', value: 'agenda'});
+		formData.push({name: 'metodo', value: 'salvar'});
+		formData.push({name: 'token', value: token});
+		$.ajax({
+			type: 'POST',
+			url: url + '/api.php',
+			data: formData,
+			success: function(result){
+				if(result.error){
+					alert(result);
+				}else{
+					//$('form').reset();
+					alert('Agendamento ID'+result.idagenda+' gravado!');
+				}
+			}
+		});
+		return false;
+	});
+}

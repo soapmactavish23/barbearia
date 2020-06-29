@@ -1,4 +1,5 @@
 var url_cliente = window.location.origin;
+var token_cliente;
 //Carregar a Navbar
 $.ajax({
 	url: url_cliente + '/partial/header.html',
