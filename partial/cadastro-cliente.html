@@ -5,6 +5,7 @@
 	</div>
 	<div class="modal-body">
         <div class="form-group">
+			<input id="idcliente" name="idcliente">
 			<label for="nome">Usuário</label>
 			<div class="input-group mb-3">
 	  			<div class="input-group-prepend">
@@ -45,37 +46,38 @@
 	    				<i class="fa fa-envelope fa-fw"></i>
 	    			</span>
 	  			</div>
-	  			<input type="text" class="form-control" placeholder="Digite seu email" name="email" required >
+	  			<input type="email" class="form-control" placeholder="Digite seu email" name="email" required >
 		    </div>
 	    </div>
-
-		<div class="form-group">
-			<label for="password">Senha</label>
-			<div class="input-group mb-3">
-	  			<div class="input-group-prepend">
-	    			<span class="input-group-text" id="basic-addon1">
-	    				<i class="fa fa-key fa-fw"></i>
-	    			</span>
-	  			</div>
-	  			<input type="password" id="password" class="form-control" placeholder="Digite sua senha" name="password" required>
-		    </div>
-        </div>
-        <div class="form-group">
-			<label for="password2">Confimar Senha</label>
-			<div class="input-group mb-3">
-	  			<div class="input-group-prepend">
-	    			<span class="input-group-text" id="basic-addon1">
-	    				<i class="fa fa-key fa-fw"></i>
-	    			</span>
-	  			</div>
-	  			<input type="password" id="password2" class="form-control" placeholder="Confirme sua senha" name="password2" required>
-		    </div>
+		<div id="form-senha">
+			<div class="form-group">
+				<label for="password">Senha</label>
+				<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">
+							<i class="fa fa-key fa-fw"></i>
+						</span>
+					  </div>
+					  <input type="password" id="password" class="form-control" placeholder="Digite sua senha" name="password" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password2">Confimar Senha</label>
+				<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">
+							<i class="fa fa-key fa-fw"></i>
+						</span>
+					  </div>
+					  <input type="password" id="password2" class="form-control" placeholder="Confirme sua senha" name="password2" required>
+				</div>
+			</div>
 		</div>
 	</div>
 	</div>
 	<div class="modal-footer">
-		<button class='btn btn-warning' type='button' onclick="carregarModal('login-cliente')">Voltar</button>
-		<button class="btn btn-primary" type="submit">Cadastro</button>
+		<button class='btn btn-warning' id="btn-voltar-cadastro" type='button' onclick="carregarModal('login-cliente')">Voltar</button>
+		<button class="btn btn-primary" type="submit">Salvar</button>
 	</div>
 </form>
 <script src="js/cadastro-cliente.js"></script>

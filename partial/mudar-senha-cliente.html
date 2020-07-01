@@ -1,0 +1,49 @@
+<link href="./lib/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<form role="form">
+	<div class="text-center">
+		<img src="img/logo.png" class="img-fluid">
+	</div>
+	<div class="modal-body">
+		<div class="form-group">
+			<label for="senha-atual">Senha Atual</label>
+			<div class="input-group mb-3">
+	  			<div class="input-group-prepend">
+	    			<span class="input-group-text" id="basic-addon1">
+	    				<i class="fa fa-key fa-fw"></i>
+	    			</span>
+	  			</div>
+	  			<input type="password" class="form-control" placeholder="Digite sua senha atual" id="senha" name="senha" required >
+		    </div>
+	    </div>
+		<div id="form-senha">
+			<div class="form-group">
+				<label for="password">Senha</label>
+				<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">
+							<i class="fa fa-key fa-fw"></i>
+						</span>
+					  </div>
+					  <input type="password" id="novasenha" class="form-control" placeholder="Digite sua senha" name="novasenha" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password2">Confimar Senha</label>
+				<div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon1">
+							<i class="fa fa-key fa-fw"></i>
+						</span>
+					  </div>
+					  <input type="password" id="confirmanovasenha" class="form-control" placeholder="Confirme sua senha" name="confirmanovasenha" required>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="modal-footer">
+		<button class='btn btn-warning' id="btn-voltar-cadastro" type='button' onclick="carregarModal('cadastro-cliente')">Voltar</button>
+		<button class="btn btn-primary" type="submit">Salvar</button>
+	</div>
+</form>
+<script src="js/mudar-senha-cliente.js"></script>

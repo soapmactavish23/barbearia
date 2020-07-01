@@ -1,5 +1,6 @@
+$('.modal-dialog').addClass('modal-sm');
 $('form').submit(function(){
-	if ( $('#password').val() != $('#password2').val() ) {
+	if ( $('#novasenha').val() != $('#confirmanovasenha').val() ) {
 		alert('Nova senha inválida');
 		return false;
 	}
@@ -7,9 +8,9 @@ $('form').submit(function(){
 	var data = $(this).serializeArray();
 	data.push({name: 'classe', value: 'cliente'});
 	data.push({name: 'metodo', value: 'mudarSenha'});
-	data.push({name: 'token', value: token});
+	data.push({name: 'token', value: token_cliente});
 
-	$.post( url + '/api.php', data, function (result) {
+	$.post( url_cliente + '/api/api.php', data, function (result) {
 		if ( result.error ) {
 			alert(result.error);
 		} else {

@@ -25,16 +25,10 @@ $.ajax({
 
 // Verifica se existe o token na sessionStorage
 if ( sessionStorage.getItem('token_cliente') && sessionStorage.getItem('token_cliente') !== "undefined" ) {
-
 	// Token existe na sessionStorage	
 	var token_cliente = sessionStorage.getItem('token_cliente');
 	var base64Url = token_cliente.split('.')[1];
 	var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
 	var jwt = JSON.parse(window.atob(base64));
 	var user_cliente = JSON.parse(jwt.data);
-
-	
-
-}else{
-
 }

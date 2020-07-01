@@ -11,7 +11,7 @@ $_cliente = new cliente();
 $_REQUEST = array_utf8_decode( $_REQUEST );
 
 # define o retorno
-$_RESPONSE = $_cliente->cadastrar();
+$_RESPONSE = $_cliente->salvar();
 
 $_RESPONSE = array_utf8_encode( $_RESPONSE );
 
