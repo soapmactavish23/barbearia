@@ -18,7 +18,7 @@ class agenda extends database {
 
 	public function obterParaAtender(){
 		global $_user;
-		$sql = "SELECT idagenda, u.idusuario, u.nome, c.idcorte, c.nome as nome_corte, cl.idcliente AS nome_cliente, cl.nome, a.data as data, c.foto, status FROM agenda a
+		$sql = "SELECT idagenda, u.idusuario, u.nome, c.idcorte, c.nome as nome_corte, cl.idcliente as idcliente, cl.nome AS nome_cliente, cl.nome, a.data as data, c.foto, status FROM agenda a
 		INNER JOIN usuario u 
 		ON u.idusuario = a.idusuario
 		INNER JOIN corte c

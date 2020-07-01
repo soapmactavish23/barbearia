@@ -1,5 +1,24 @@
+if(token_cliente){
+
+    $('#btn-entrar').hide();
+    $('#btn-sair').show();
+    $('#btn-usuario').show();
+    $('#nome-usuario').text(user_cliente.nome);
+
+}else{
+    $('#btn-sair').hide();
+    $('#btn-usuario').hide();
+    $('#btn-entrar').show();
+}
+
 $('#btn-entrar').click(function(){
     carregarModal('login');
+});
+
+$('#btn-sair').click(function(){
+    sessionStorage.removeItem('token_cliente');
+    location.replace( "index.html" );
+    return true;
 });
 
 function carregarModal(localizacao){
