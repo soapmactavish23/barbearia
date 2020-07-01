@@ -1,3 +1,7 @@
+$('#btn-entrar').click(function(){
+    carregarModal('login');
+});
+
 function carregarModal(localizacao){
     $.ajax({
         url: url_cliente + '/partial/' + localizacao + '.html' ,

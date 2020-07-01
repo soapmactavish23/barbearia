@@ -1,0 +1,81 @@
+<link href="./lib/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<form role="form">
+	<div class="text-center">
+		<img src="img/logo.png" class="img-fluid">
+	</div>
+	<div class="modal-body">
+        <div class="form-group">
+			<label for="nome">Usuário</label>
+			<div class="input-group mb-3">
+	  			<div class="input-group-prepend">
+	    			<span class="input-group-text" id="basic-addon1">
+	    				<i class="fa fa-user"></i>
+	    			</span>
+	  			</div>
+	  			<input type="text" class="form-control" placeholder="Digite seu nome completo" name="nome" required>
+		    </div>
+        </div>
+        <div class="form-group">
+			<label for="cpf">CPF</label>
+			<div class="input-group mb-3">
+	  			<div class="input-group-prepend">
+	    			<span class="input-group-text" id="basic-addon1">
+	    				<i class="fas fa-id-badge"></i>
+	    			</span>
+	  			</div>
+	  			<input type="text" class="form-control cpf" placeholder="Digite seu CPF" name="cpf" required >
+		    </div>
+        </div>
+        <div class="form-group">
+			<label for="contato">Contato</label>
+			<div class="input-group mb-3">
+	  			<div class="input-group-prepend">
+	    			<span class="input-group-text" id="basic-addon1">
+	    				<i class="fas fa-phone-square-alt"></i>
+	    			</span>
+	  			</div>
+	  			<input type="text" class="form-control contato" placeholder="Digite seu Contato" name="contato" required >
+		    </div>
+        </div>
+		<div class="form-group">
+			<label for="email">E-mail</label>
+			<div class="input-group mb-3">
+	  			<div class="input-group-prepend">
+	    			<span class="input-group-text" id="basic-addon1">
+	    				<i class="fa fa-envelope fa-fw"></i>
+	    			</span>
+	  			</div>
+	  			<input type="text" class="form-control" placeholder="Digite seu email" name="email" required >
+		    </div>
+	    </div>
+
+		<div class="form-group">
+			<label for="password">Senha</label>
+			<div class="input-group mb-3">
+	  			<div class="input-group-prepend">
+	    			<span class="input-group-text" id="basic-addon1">
+	    				<i class="fa fa-key fa-fw"></i>
+	    			</span>
+	  			</div>
+	  			<input type="password" id="password" class="form-control" placeholder="Digite sua senha" name="password" required>
+		    </div>
+        </div>
+        <div class="form-group">
+			<label for="password2">Confimar Senha</label>
+			<div class="input-group mb-3">
+	  			<div class="input-group-prepend">
+	    			<span class="input-group-text" id="basic-addon1">
+	    				<i class="fa fa-key fa-fw"></i>
+	    			</span>
+	  			</div>
+	  			<input type="password" id="password2" class="form-control" placeholder="Confirme sua senha" name="password2" required>
+		    </div>
+		</div>
+	</div>
+	</div>
+	<div class="modal-footer">
+		<button class='btn btn-warning' type='button' onclick="carregarModal('login-cliente')">Voltar</button>
+		<button class="btn btn-primary" type="submit">Cadastro</button>
+	</div>
+</form>
+<script src="js/cadastro-cliente.js"></script>

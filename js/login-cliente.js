@@ -1,15 +1,16 @@
+$('.modal-dialog').addClass('modal-sm');
 $('form').submit(function() {
 	var formData = $(this).serializeArray();
 	$.ajax({
 		type: 'POST',
-		url: url+'/autentica.php',
+		url: url_cliente+'/api/autentica_cliente.php',
 		data: formData,
 		success: function(result) {	
 			if (result) {
 				if (result.error) {
 					alert(result.error);
 				} else {
-					sessionStorage.setItem('token', result.token);
+					sessionStorage.setItem('token_cliente', result.token_cliente);
 					window.location.reload(true);
 				}
 			} else {
@@ -22,6 +23,6 @@ $('form').submit(function() {
 	return false;
 });
 
-$(".modal").on('hide.bs.modal', function () {
-	window.location.reload(true);
-});
+// $(".modal").on('hide.bs.modal', function () {
+// 	window.location.reload(true);
+// });
