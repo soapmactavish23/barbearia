@@ -48,7 +48,7 @@ class cliente extends database {
 
 	public function obterHistoricoCortes(){
 		global $_user;
-		$sql = "SELECT nome, preco, data, status  FROM agenda a
+		$sql = "SELECT idagenda, nome, preco, data, status  FROM agenda a
 		INNER JOIN corte c
 		ON c.idcorte = a.idcorte
 		WHERE idcliente = ".$_user->idcliente;

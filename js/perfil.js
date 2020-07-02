@@ -21,7 +21,6 @@ $('#btn-editar').click(function(){
 $('#geral').load('partial/geral-perfil-tab.html');
 var carregou_c = false;
 var carregou_b = false;
-var carregou_p = false;
 $('#c-tab').click(function(){
     if(!carregou_c){
         $('#c').load('partial/cortes-perfil-tab.html');

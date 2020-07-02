@@ -12,6 +12,7 @@ var datatable = $('#datatable').DataTable( {
 		}
 	}, 
 	"columns": [
+		{ "data": "idagenda", "visible": true },
         { "data": "nome", "visible": true },
         { "data": "preco", "visible": true },
 		{ "data": "status", "visible": true },
