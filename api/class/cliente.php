@@ -46,6 +46,43 @@ class cliente extends database {
 		}
 	}
 
+	public function obterHistoricoCortes(){
+		global $_user;
+		$sql = "SELECT nome, preco, data, status  FROM agenda a
+		INNER JOIN corte c
+		ON c.idcorte = a.idcorte
+		WHERE idcliente = ".$_user->idcliente;
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
+	public function obterHistoricoBarbeiros(){
+		global $_user;
+		$sql = "SELECT foto, nome, contato, COUNT(*) as total FROM agenda a
+		INNER JOIN usuario u
+		ON a.idusuario = u.idusuario
+		WHERE a.idcliente = ".$_user->idcliente."
+		group by nome";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
 	public function salvar() {
 		$this->idcliente = @ $_REQUEST['idcliente'];
 		$this->nome = $_REQUEST['nome'];

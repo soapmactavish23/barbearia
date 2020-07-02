@@ -16,3 +16,13 @@ $('#btn-editar').click(function(){
         }
     });
 });
+
+//Carregar as tabs
+$('#geral').load('partial/geral-perfil-tab.html');
+
+$('#c').load('partial/cortes-perfil-tab.html');
+
+$('#recurso').load('partial/acao-recurso.html');
+
+$('#indicador').load('partial/produtividade-acao-indicador.html');
+

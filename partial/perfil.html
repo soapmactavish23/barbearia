@@ -1,11 +1,43 @@
 <div class="container">
-    <div data-aos="fade-up" align="center">
+    <div data-aos="zoom-in" align="center">
         <img class="img-thumbnail rounded-circle img-fluid" id="img-perfil" width=320 height=240 src="img/padrao.jpg">
         <h1 id="nome-perfil"></h1>
         <button class="btn btn-success" data-toggle="modal" data-target="#modal" onclick="carregarModal('enviar-foto-cliente')" id="btn-enviar-foto"><i class="fa fa-photo"></i> Enviar Foto</button>
         <button class="btn btn-primary" data-toggle="modal" data-target="#modal" onclick="carregarModal('cadastro-cliente')" id="btn-editar"><i class="fa fa-user"></i> Editar Perfil</button>
         <button class="btn btn-info" data-toggle="modal" data-target="#modal" id="btn-mudar" onclick="carregarModal('mudar-senha-cliente')"><i class="fa fa-key fa-fw"></i> Mudar Senha</button>
         <hr>
+        <ul class="nav nav-tabs" id="tabs" role="tablist">
+            <li class="nav-item" id="nav-item-geral">
+                <a class="nav-link active" id="geral-tab" data-toggle="tab" href="#geral" role="tab" aria-controls="geral" aria-selected="true">Geral</a>
+            </li>
+            <li class="nav-item aba">
+                <a class="nav-link" id="c-tab" data-toggle="tab" href="#c" role="tab" aria-controls="c" aria-selected="false" >Histórico de Cortes</a>
+            </li>
+            <li class="nav-item aba">
+                <a class="nav-link" id="b-tab" data-toggle="tab" href="#b" role="tab" aria-controls="b" aria-selected="false">Histórico de Barbeiros</a>
+            </li>
+    
+            <li class="nav-item aba">
+                <a class="nav-link" id="p-tab" data-toggle="tab" href="#p" role="tab" aria-controls="p" aria-selected="false">Lista de Produtos</a>
+            </li>
+        </ul>
+        <div class="tab-content border-bottom border-left border-right" id="myTabContent">
+            <!-- geral -->
+            <div class="tab-pane fade show active bg-light" id="geral" role="tabpanel" aria-labelledby="geral-tab"></div>
+    
+            <!-- Cortes -->
+            <div class="tab-pane fade container bg-light" id="c" role="tabpanel" aria-labelledby="c-tab"></div>
+    
+            <!-- Barbeiros -->
+            <div class="tab-pane fade container bg-light" id="b" role="tabpanel" aria-labelledby="b-tab">
+                Barbeiros
+            </div>
+    
+            <!-- p -->
+            <div class="tab-pane fade container bg-light" id="p" role="tabpanel" aria-labelledby="p-tab">
+                Produtos
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="js/perfil.js"></script>

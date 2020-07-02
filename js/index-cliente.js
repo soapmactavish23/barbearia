@@ -31,4 +31,14 @@ if ( sessionStorage.getItem('token_cliente') && sessionStorage.getItem('token_cl
 	var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
 	var jwt = JSON.parse(window.atob(base64));
 	var user_cliente = JSON.parse(jwt.data);
+
+	$.fn.dataTable.ext.errMode = function ( settings, helpPage, message ) { 
+		var error = message.split(" - ", 2);
+		console.log ( error[1] );
+		if ( error[1] == 'Token expirado') {
+			sessionStorage.removeItem('token_cliente');
+			location.reload(true);			
+		}
+	}
+
 }

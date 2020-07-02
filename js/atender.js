@@ -20,7 +20,7 @@ var datatable = $('#datatable').DataTable( {
 	"language": {
 		"url": "lib/datatables/Portuguese-Brasil.lang"
 	}
-}); 
+});
 
 $('#datatable tbody').on('click', 'tr', function () {
 	data = datatable.row( this ).data();

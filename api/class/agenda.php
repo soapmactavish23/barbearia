@@ -197,6 +197,43 @@ class agenda extends database {
 		}
 	}
 
+	public function contarBarbeirosCliente(){
+		global $_user;
+		$sql = "SELECT nome, COUNT(*) as cortes FROM agenda a
+		INNER JOIN usuario u
+		ON u.idusuario = a.idusuario
+		WHERE idcliente = ".$_user->idcliente." group by nome";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
+	public function contarCortesCliente(){
+		global $_user;
+		$sql = "SELECT nome, COUNT(*) as pedidos FROM agenda a
+		INNER JOIN corte c
+		ON c.idcorte = a.idcorte
+		WHERE idcliente = ".$_user->idcliente."
+		group by nome";
+		if ( $rs = parent::fetch_all($sql) ) {
+			foreach ( $rs as $row ) {
+				$col = array();
+				foreach ( $row as $k=>$v ) {
+					$col[$k] = stripslashes($v);
+				}
+				$rows[] = $col;
+			}
+			return array( 'data' => $rows );
+		}
+	}
+
 	public function contarCortes(){
 		$sql = "SELECT nome, COUNT(*) as pedidos FROM AGENDA a
 		INNER JOIN corte c
