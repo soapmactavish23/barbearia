@@ -5,7 +5,7 @@ class cliente extends database {
 	public function autenticar ($login, $password) {
 		$login = addslashes($login);
 		$password = addslashes($password);
-		$sql = "SELECT idcliente, nome FROM cliente
+		$sql = "SELECT idcliente, nome, foto FROM cliente
 		WHERE binary email='$login' and binary senha='".md5($password)."' 
 		LIMIT 1";
 		if ( $rs = parent::fetch_all($sql) ) {
@@ -62,9 +62,19 @@ class cliente extends database {
 			$this->idcliente = $this->insert();
 			return array ( 'idcliente' => $this->idcliente, 'msg' => "Usuário Cadastrado com Sucesso");
 		}
-		
-		
-    }
+	}
+	
+	public function salvar_foto(){
+		global $_user;
+		$this->idcliente = $_user->idcliente;
+		$this->foto = @ $_REQUEST['foto_1'];
+		$this->dt_update = date('Y-m-d H:i:s');
+		if($this->update()){
+			return array ( 'success' => "Foto Atualizada com Sucesso");
+		}else{
+			return array ( 'error' => "Não Foi Possível Alterar a Foto");
+		}
+	}
 
 	public function excluir() {
 		if ( @ $_REQUEST['idcliente'] ) {

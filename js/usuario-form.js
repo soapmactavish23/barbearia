@@ -130,7 +130,7 @@ $('form').submit(function(){
 	$('#div-foto').show();
 	$('#div-camera').hide();
 	return false;
-});	
+});
 
 $('#btn-excluir').click(function(){
 	if ( confirm('Tem certeza que deseja excluir este registro?') ) {

@@ -1,0 +1,25 @@
+<link href="./lib/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<form role="form">
+	<div class="text-center">
+		<img src="img/logo.png" class="img-fluid">
+	</div>
+	<div class="modal-body">
+        <div class='row' id='div-camera'>
+			<div class='col-sm-6'>
+				<label>Câmera</label>
+				<video class="img-thumbnail" id="video" muted autoplay width=320 height=240></video>
+				<button class='btn btn-primary' type='button' id="btn-capturar">Capturar</button>
+			</div>
+			<div class='col-sm-6'>
+				<label>Nova foto</label><br>
+				<canvas class="img-thumbnail" id="snapshot" width=320 height=240>
+				</canvas>
+				<input type="hidden" name="foto">
+			</div>
+		</div>
+    </div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="submit">Salvar</button>
+	</div>
+</form>
+<script src="js/foto-cliente.js"></script>

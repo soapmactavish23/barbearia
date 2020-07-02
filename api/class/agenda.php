@@ -59,7 +59,7 @@ class agenda extends database {
 	}
 
 	public function obterTodosConsulta(){
-		$sql = "SELECT idagenda, status, u.nome as barbeiro, u.foto, c.nome as cliente, ct.nome as corte, ct.preco, a.dt_update 
+		$sql = "SELECT idagenda, status, u.nome as barbeiro, u.foto, c.nome as cliente, ct.nome as corte, ct.preco, a.dt_update, c.foto as foto_cliente, c.contato, c.cpf
 		FROM agenda a
 		INNER JOIN usuario u
 		ON a.idusuario = u.idusuario

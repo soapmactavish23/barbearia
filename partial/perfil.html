@@ -1,11 +1,11 @@
 <div class="container">
     <div data-aos="fade-up" align="center">
-        <img class="img-thumbnail rounded-circle" width=320 height=240 src="../img/logo.png">
+        <img class="img-thumbnail rounded-circle img-fluid" id="img-perfil" width=320 height=240 src="img/padrao.jpg">
         <h1 id="nome-perfil"></h1>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modal" onclick="carregarModal('cadastro-cliente')" id="btn-editar">Editar Perfil</button>
-        <button class="btn btn-info" data-toggle="modal" data-target="#modal" id="btn-mudar" onclick="carregarModal('mudar-senha-cliente')">Mudar Senha</button>
+        <button class="btn btn-success" data-toggle="modal" data-target="#modal" onclick="carregarModal('enviar-foto-cliente')" id="btn-enviar-foto"><i class="fa fa-photo"></i> Enviar Foto</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modal" onclick="carregarModal('cadastro-cliente')" id="btn-editar"><i class="fa fa-user"></i> Editar Perfil</button>
+        <button class="btn btn-info" data-toggle="modal" data-target="#modal" id="btn-mudar" onclick="carregarModal('mudar-senha-cliente')"><i class="fa fa-key fa-fw"></i> Mudar Senha</button>
         <hr>
     </div>
 </div>
-<script type="text/javascript" src="js/perfil.js">
-</script>
+<script type="text/javascript" src="js/perfil.js"></script>

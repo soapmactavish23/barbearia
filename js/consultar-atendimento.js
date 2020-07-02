@@ -40,7 +40,15 @@ $('#datatable tbody').on('click', 'td.details-control', function () {
 
 function format(d) {
     var cliente = d.cliente;
-    if(!cliente) cliente = "CLIENTE NÃO CADASTRADO";
-    var data = datetime_format(d.dt_update,'d/m/y h:i');
-	return	'<div class="row"><div class="col-sm-4"><img src="'+d.foto+'" class="img-fluid img-thumbnail"></div><div class="col-sm-8"><div>Barbeiro: <b>'+ d.barbeiro +'</b></div><div>Corte: <b>'+ d.corte +'</b></div><div>Preço: <b>'+d.preco+'</b></div><div>Cliente: <b>'+ cliente +'</b></div><div>Data: <b>'+ data +'</b></div>';
+	var data = datetime_format(d.dt_update,'d/m/y h:i');
+	var foto_cliente = d.foto_cliente;
+	var foto_barbeiro = d.foto;
+	if(!cliente){
+		if(!foto_barbeiro) foto_barbeiro = "img/padrao.jpg";
+		return	'<div class="row"><div class="col-sm-4"><img src="'+foto_barbeiro+'" class="img-fluid img-thumbnail"></div><div class="col-sm-8"><div><h3>Barbeiro: '+ d.barbeiro +'</h3></div><div>Corte: <b>'+ d.corte +'</b></div><div>Preço: <b>'+d.preco+'</b></div><div>Data: <b>'+ data +'</b></div>';
+	}else{
+		if(!foto_barbeiro) foto_barbeiro = "img/padrao.jpg";
+		if(!foto_cliente) foto_cliente = "img/padrao.jpg";
+		return	'<div class="row"><div class="col-sm-4"><img src="'+foto_barbeiro+'" class="img-fluid img-thumbnail"></div><div class="col-sm-8"><div><h3>Barbeiro: '+ d.barbeiro +'<h3></div><div>Corte: <b>'+ d.corte +'</b></div><div>Preço: <b>'+d.preco+'</b></div><div>Data: <b>'+ data +'</b></div></div><hr><div class="row"><div class="col-sm-4"><img src="'+foto_cliente+'" class="img-fluid img-thumbnail"></div><div class="col-sm-8"><div><h3>Cliente: '+ cliente +'</h3></div><div>Contato: <b>'+ d.contato +'</b></div><div>CPF: <b>'+d.cpf+'</b></div><div>Data: <b>'+ data +'</b></div>';
+	}
 }
