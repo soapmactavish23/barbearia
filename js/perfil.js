@@ -19,10 +19,19 @@ $('#btn-editar').click(function(){
 
 //Carregar as tabs
 $('#geral').load('partial/geral-perfil-tab.html');
+var carregou_c = false;
+var carregou_b = false;
+var carregou_p = false;
+$('#c-tab').click(function(){
+    if(!carregou_c){
+        $('#c').load('partial/cortes-perfil-tab.html');
+        carregou_b = true;
+    }
+});
 
-$('#c').load('partial/cortes-perfil-tab.html');
-
-$('#recurso').load('partial/acao-recurso.html');
-
-$('#indicador').load('partial/produtividade-acao-indicador.html');
-
+$('#b-tab').click(function(){
+    if(!carregou_b){
+        $('#b').load('partial/barbeiro-perfil.html');
+        carregou_b = true;
+    }
+});

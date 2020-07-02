@@ -14,8 +14,8 @@ var datatable = $('#datatable').DataTable( {
 	"columns": [
         { "data": "nome", "visible": true },
         { "data": "preco", "visible": true },
-        { "data": "data", "className": "dt-body-right", "visible": true, "render": function(datetime) { return datetime_format(datetime,'d/m/y h:i')} },
-        { "data": "status", "visible": true },
+		{ "data": "status", "visible": true },
+		{ "data": "data", "className": "dt-body-right", "visible": true, "render": function(datetime) { return datetime_format(datetime,'d/m/y h:i')} }
 	],
 //	"order": [[2, 'desc']],
 	"responsive": true,
