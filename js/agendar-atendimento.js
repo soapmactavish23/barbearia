@@ -12,6 +12,7 @@ if(sessionStorage.getItem('token')){
 				var optgroup = "<option value='"+result.data[i].idusuario+"'>" + result.data[i].nome + "</option>";
 				select_barbeiro.append(optgroup);
 			}
+			select_barbeiro.val(null);
 			select_barbeiro.selectpicker();
 		}
 	});
@@ -28,6 +29,7 @@ if(sessionStorage.getItem('token')){
 				var optgroup = "<option value='"+result.data[i].idcorte+"'>" + result.data[i].nome + "</option>";
 				select_corte.append(optgroup);
 			}
+			select_corte.val(null);
 			select_corte.selectpicker();
 		}
 	});
@@ -45,8 +47,9 @@ if(sessionStorage.getItem('token')){
 				if(result.error){
 					alert(result);
 				}else{
-					//$('form').reset();
-					alert('Agendamento ID'+result.idagenda+' gravado!');
+					$('input').val(null);
+					$('select').val(null);
+					alert('Agendamento ID '+result.idagenda+' gravado!');
 				}
 			}
 		});
@@ -68,6 +71,7 @@ if(sessionStorage.getItem('token_cliente')){
 				var optgroup = "<option value='"+result.data[i].idusuario+"'>" + result.data[i].nome + "</option>";
 				select_barbeiro.append(optgroup);
 			}
+			select_barbeiro.val(null);
 			select_barbeiro.selectpicker();
 		}
 	});
@@ -84,6 +88,7 @@ if(sessionStorage.getItem('token_cliente')){
 				var optgroup = "<option value='"+result.data[i].idcorte+"'>" + result.data[i].nome + "</option>";
 				select_corte.append(optgroup);
 			}
+			select_corte.val(null);
 			select_corte.selectpicker();
 		}
 	});
@@ -102,8 +107,8 @@ if(sessionStorage.getItem('token_cliente')){
 				if(result.error){
 					alert(result);
 				}else{
-					//$('form').reset();
-					alert('Agendamento ID'+result.idagenda+' gravado!');
+					$('input').val(null);
+					alert('Agendamento ID '+result.idagenda+' gravado!');
 				}
 			}
 		});

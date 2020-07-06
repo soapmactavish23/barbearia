@@ -11,19 +11,18 @@ $('form').submit(function(){
             type: 'post',
             data: formData,
             success: function(result){
-                console.log(result);
                 if (result) {
                     alert(result.msg);
-                    // $('.modal').modal('hide');
+                    $('.modal').modal('hide');
                     // carregarModal('login-cliente');
+                    return true;
                 }
-                return false;
             }
         });
     }else{
         alert("As senhas não são iguais");
+        return false;
     }
-    return false;
 });
 
 if(dados_usuario){
